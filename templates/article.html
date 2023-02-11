@@ -1,0 +1,50 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+
+  <h1>{{article.title}}</h1>
+  <small>Written by {{article.author}} on {{article.create_date}}</small></br>
+  <span class="label label-default">分区</span>
+  <!-- 张方哲：分区 -->
+  <a href="#">#标签1<span class="badge">0</span></a>
+  <a href="#">#标签2 <span class="badge">4</span></a>
+  <a href="#">#标签3 <span class="badge">12</span></a>
+  <a class="btn btn-primary" data-toggle="button" autocomplete="off" style="float: right;"href="">关注ta</a>
+ <!--张方哲：加了下方显示的标签 -->
+  <!-- 张方哲：关注的路由未写 -->
+
+  <button type="button" class="btn btn-default" data-toggle="button" autocomplete="off" style="float: right;"aria-label="Left Align">
+    <span class="glyphicon glyphicon-heart-empty"  aria-hidden="true" input type="checkbox" >{{这里放点赞数}}这里放点赞数</span>
+    <!-- 张方哲：上面span标签后面放传入的点赞数 -->
+   
+  </button>
+  
+  <hr>
+  
+  <div>
+    {{article.body | safe}}
+  </div>
+ <!-- 张方哲：评论区，缺form -->
+  <div class="panel panel-default" style="position: relative;bottom: -300px;">
+    <div class="panel-heading">
+      <h3 class="panel-title">评论区</h3>
+    </div>
+    <div class="panel-body">
+      
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="输入你的评论。。。">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+       
+        <div class="panel panel-default" style="background-color:aliceblue">
+          <div class="panel-body">
+            <h4>来自用户 李潼  的评论：</h4>
+          </div>
+          <div class="panel-footer"><h5>好！</h5></div>
+        </div>
+    </div>
+
+    
+  </div>
+{% endblock %}

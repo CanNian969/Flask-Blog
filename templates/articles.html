@@ -1,0 +1,46 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+  <h1>Articles</h1>
+  <div class="input-group">
+    <input type="text" class="form-control" placeholder="Search for...">
+    <span class="input-group-btn">
+      <button class="btn btn-default" type="button">Go!</button>
+    </span>
+  </div>
+  <!--张方哲： 搜索框 -->
+  <!-- 张方哲：点赞排序和时间排序缺链接 -->
+  <a class="btn btn-default pull-right"style="position:relative; left:-20px;">点赞排序</a>
+  <a>  </a>
+  <a href="/articles" class="btn btn-default pull-right" style="position:relative; left:-40px;">时间排序</a>
+  <!-- <ul class="list-group">
+    {% for article in articles %}
+      <li class="list-group-item"><a href="article/{{article.id}}">{{article.title}}</a></li>
+    {% endfor %}
+  </ul> 
+原代码-->
+ <!--张方哲：这里修改了列名 likes是点赞，view是阅览数  -->
+  <hr>
+  <table class="table table-striped">
+    <tr>
+      <th>ID</th>
+      <th>Title</th>
+      <th>Author</th>
+      <th>Date</th>
+      <th>Likes</th>
+      <th>Views</th>
+    </tr>
+    {% for article in articles %}
+      <tr>
+        <td>{{article.id}}</td>
+        <td><a href="article/{{article.id}}">{{article.title}}</a></td>
+        <td>{{article.author}}</td>
+        <td>{{article.create_date}}</td>
+        <td>点赞数</td>
+        <td>浏览量</td>
+        <!-- 张方哲：上方两个td分别缺后端传点赞数和浏览量views -->
+       
+      </tr>
+    {% endfor %}
+  </table>
+{% endblock %}

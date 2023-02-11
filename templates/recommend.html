@@ -1,0 +1,38 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+  <h1>Recommend</h1>
+  <h3>你关注的 Ta 点过赞的文章都会在这里显示😏</h3>
+  <!-- 张方哲：点赞排序和时间排序缺链接 -->
+  <a href="/articles" class="btn btn-default pull-right">时间排序</a>
+  <!-- <ul class="list-group">
+    {% for article in articles %}
+      <li class="list-group-item"><a href="article/{{article.id}}">{{article.title}}</a></li>
+    {% endfor %}
+  </ul> 
+原代码-->
+ 
+  <hr>
+  <table class="table table-striped">
+    <tr>
+      <th>ID</th>
+      <th>Title</th>
+      <th>Author</th>
+      <th>Date</th>
+      <th>Likes</th>
+      <th>Views</th>
+    </tr>
+    {% for article in articles %}
+      <tr>
+        <td>{{article.id}}</td>
+        <td><a href="article/{{article.id}}">{{article.title}}</a></td>
+        <td>{{article.author}}</td>
+        <td>{{article.create_date}}</td>
+        <td>点赞数</td>
+        <td>浏览量</td>
+        <!-- 张方哲：上方两个td分别缺后端传点赞数和浏览量views -->
+       
+      </tr>
+    {% endfor %}
+  </table>
+{% endblock %}

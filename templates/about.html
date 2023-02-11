@@ -1,0 +1,41 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+  <h1>About Us😆</h1>
+  <p align='center'>
+    <!--张方哲 这里显示项目2.0时期的介绍文档 -->
+<div id='write'  class=''><span>一、 概述及分析</span></h1><h2 id='11-项目背景'><span>1.1 项目背景</span></h2><p><span>随着互联网的发展，越来越多的人拥有了自己的个人博客。但是大多数采用的是网上别人做好的博客模板，众所周知，网上的模板并不是单独为个人而定制，而是面向大多数人的，独立设计一个博客，满足自己的需求。</span></p><h2 id='12-分析'><span>1.2 分析</span></h2><p><span>系统主要完成以下几方面的功能：</span>
+  <span>用户管理：用户的注册和登录，发表博文和评论。</span>
+  <span>博文管理：用户可以在网站中发表和设置博文。</span>
+  <span>评论管理：用户可以评论博文和回复其他用户的评论。</span>
+  <span>分类管理：添加和删除分类，给文章设置分类。</span>
+  <span>标签管理：添加和删除标签，给文章设置标签。</span></p><h2 id='13-系统功能'><span>1.3 系统功能</span></h2><h3 id='131-用户管理'><span>1.3.1 用户管理</span></h3><p><span>用户的相关信息如下：用户ID、用户名、用户邮箱、用户昵称、用户密码、注册时间。</span></p><p><span>用户注册时需提供用户名、用户密码、用户邮箱。</span></p><p><span>用户登录时可以采用用户名或邮箱或手机号进行登录。</span></p><p><span>用户可以发布博文、发表评论、回复，还可以添加其他用户为好友。</span></p><h3 id='132-博文管理'><span>1.3.2 博文管理</span></h3><p><span>博文的相关信息如下：博文ID、博文标题、博文内容、发表用户、发布日期、点赞数(select count(文章ID) from 点赞表)、评论数(select count(*) from comment where id = 评论文章ID)、游览量(请求一次url就加一)，所属分类（一对一，添加文章时插入）。</span></p><p><span>博文可以被普通用户发布、修改、删除和评论，但修改和删除仅限于自己发表的动态。</span></p><p><strong><span>博文发布时需要设置分类、标签。</span></strong></p><p>&nbsp;</p><p><span>article-label表：label ID、article ID</span></p><p><strong><span>add_article方法：</span></strong></p><p><span>在add article界面加两个框，一个单选（分类），一个多选（标签），表单提交。修改add_article方法，将分类插入；标签for插入article-label表。</span></p><p>&nbsp;</p><p><strong><span>articles界面：</span></strong></p><p><span>文章点赞数排列</span></p><p><span>文章时间排列</span></p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><h3 id='133-评论管理'><span>1.3.3 评论管理</span></h3><p><span>评论的相关信息如下：评论ID、评论日期、点赞数、发表用户、评论文章ID、评论内容、</span><em><span>父评论ID</span></em><span>。</span></p><p><span>评论可以被用户发表和删除以及被其他用户回复。</span></p><p>&nbsp;</p><p>&nbsp;</p><p><strong><span>add_comment方法：</span></strong></p><p><span>在article界面下方加一个评论框，编辑评论点击发布按钮。</span></p><p><span>方法内检查是否登录，未登录则返回提示。</span></p><p><span>登录则将文章ID、评论内容和用户ID插入评论表，</span></p><p>&nbsp;</p><p>&nbsp;</p><p><strong><span>article方法：</span></strong></p><p><span>查评论表</span></p><p>&nbsp;</p><h3 id='134-分类管理'><span>1.3.4 分类管理</span></h3><p><span>分类的相关信息如下：分类ID、分类名称、分类描述、父分类ID。</span></p><p><span>只有管理员可以添加、删除、修改分类。</span></p><p><span>分类的作用不仅可以将文章分类，还可以作为博客的菜单。</span></p><p>&nbsp;</p><p><strong><span>article：</span></strong></p><p><span>显示分类和标签</span></p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><h3 id='135-标签管理'><span>1.3.5 标签管理</span></h3><p><span>标签的相关信息如下：标签ID、标签名称、</span><em><span>标签别名</span></em><span>、标签描述。</span></p><p><span>用户发表文章时可以设置标签，标签不仅可以将文章分类，还可以作为博客的菜单。</span></p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><h3 id='136-点赞推荐表'><span>1.3.6 点赞推荐表</span></h3><p><span>关注表（userID、关注者id）</span></p><p><span>点赞表（userID、文章ID）</span></p><p>&nbsp;</p><p>&nbsp;</p><p><span>在文章界面加两个按钮：关注作者、点赞文章</span></p><p><span>关注作者：将userid与作者ID插入关注表数</span></p><p><span>点赞文章：将userID与文章ID插入点赞表</span></p><p><span>新建一个推荐页面：推荐文章（推荐关注者点赞的文章）</span></p><p>&nbsp;</p><p><span>articles页按照dashboard设计 点赞量、时间排序，每个articles显示时间和点赞量</span></p><p><span>复制article页 变成recomend页面</span></p><p><span>article加点赞按钮和显示点赞数，评论框、提交按钮、评论区点赞</span></p><p>&nbsp;</p></div></div>
+  
+    <!-- <br>最近做的两件事一件是静心，一件是坚持</br>
+    
+    <br>成都的漂亮姐姐很辣，就像当地的火锅</br>
+    <br>可惜她们都有男朋友，我也吃不了辣</br>
+    
+    <br>在天台 劈柴 生火 烤肉</br>
+    <br>看到太多浮躁的人东奔西走</br>
+    <br>当滚烫的脂肪滴落在炉底的石头</br>
+    <br>不禁让我这个自诩上流的人变得下流</br>
+    
+    <br>学生时代的感情最为纯真不过，</br>
+    <br>如果让我用两句词来形容，</br>
+    <br>那大概就是：</br>
+    <br>记得小频初见，</br>
+    <br>两重心字罗衣，</br>
+    <br>琵琶弦上说相思。</br>
+    <br>当时明月在，</br>
+    <br>曾照彩云归。</br>
+    
+    <br>当酒精麻痹了自有的判断</br>
+    <br>像肉体飞向了自由的港湾</br>
+    <br>灵魂的颜色在欲望中黯淡</br>
+    <br>我只好被夹在他们的两端</br>
+    <br>舍友喝的脸都 红了，我点开 相机</br>
+    <br>舍友 挣扎着说    “别 录！”</br>
+    <br>空调开着冰块 融了，把温度 降低</br>
+    能否 升华这波    《节 目》？</p> -->
+{% endblock %}

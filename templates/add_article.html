@@ -1,0 +1,60 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+  <h1>Add Article</h1>
+  {% from "includes/_formhelpers.html" import render_field %}
+  <form method="POST" action="">
+    <div class="form-group">
+      {{ render_field(form.title, class_="form-control") }}
+    </div>
+    <div class="form-group">
+      {{ render_field(form.body, class_="form-control", id="editor") }}
+    </div>
+    
+  <!-- 张方哲：此处加入分区选择 -->
+  <div class="dropdown">
+    <button type="button" class="btn dropdown-toggle" id="dropdownMenu1" 
+        data-toggle="dropdown">
+      投稿分区：{{这里放一下选到的分区}}
+      <!-- 张方哲：这里后端传一下他选的分区 -->
+      <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+      <li role="presentation">
+        <!-- <span role="menuitem" tabindex="-1" value="1">邓崇森技术讨论区</span> -->
+        <input type="radio" name="area" value="dcs" /> 邓崇森技术讨论区<br />
+      </li>
+      <li role="presentation">
+        <!-- <span role="menuitem" tabindex="-1" value="2">李潼张希朋友圈文学</span> -->
+        <input type="radio" name="area" value="ltzx" />李潼张希朋友圈文学<br />
+      </li>
+      <li role="presentation">
+        <!-- <span role="menuitem" tabindex="-1" value="3">疯狂星期四上车群</span> -->
+        <input type="radio" name="area" value="kfc" />疯狂星期四上车群<br />
+      </li>
+      <li role="presentation">
+
+      </li>
+      <li role="presentation" class="divider"></li>
+      <li role="presentation">
+        <a role="menuitem" tabindex="-1" href="#"><input type="checkbox" name="CSDN" value="CSDN" /> 同步到CSDN博客交♂流群<br /></a>
+      </li>
+    </ul>
+
+    <h4><span class="label label-success" ><input type="checkbox" name="label" value="A" />数据库设计经验分享</span>
+    <span class="label label-warning"><input type="checkbox" name="label" value="B" /> 朋友圈废话文学文案</span>
+    <span class="label label-info"><input type="checkbox" name="label" value="C" />肯德基疯狂星期四</span>
+    <span class="label label-primary"><input type="checkbox" name="label" value="D" />数据库大型作业设计</span>
+    <span class="label label-danger"><input type="checkbox" name="label" value="E" />实验七后两题到底怎么写</span>
+    <span class="label label-default"><input type="checkbox" name="label" value="F" />其他</span>
+  </h4>
+  </div>
+
+  <!-- 张方哲：此处加入标签选择 -->
+  <p><input class="btn btn-primary" type="submit" value="Submit" style="position:relative;bottom: -20px;"></p>
+
+
+
+    </form>
+
+{% endblock %}
